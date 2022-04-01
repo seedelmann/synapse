@@ -201,7 +201,11 @@ def prepare() -> None:
             click.get_current_context().abort()
 
         # Check out the base branch and ensure it's up to date
-        repo.head.reference = base_branch
+        # Type ignore: the complaint is
+        #     expression has type "HEAD", variable has type
+        #     "Union[Head, TagReference, RemoteReference, Reference]"
+        # HEAD and Reference both inherit from SymbolicReference. Maybe this is safe?
+        repo.head.reference = base_branch  # type: ignore[assignment]
         repo.head.reset(index=True, working_tree=True)
         if not base_branch.is_remote():
             update_branch(repo)
