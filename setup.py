@@ -105,6 +105,7 @@ CONDITIONAL_REQUIREMENTS["mypy"] = [
     "mypy==0.931",
     "mypy-zope==0.3.5",
     "types-bleach>=4.1.0",
+    "types-commonmark>=0.9.2",
     "types-jsonschema>=3.2.0",
     "types-opentracing>=2.4.2",
     "types-Pillow>=8.3.4",
@@ -130,7 +131,7 @@ CONDITIONAL_REQUIREMENTS["dev"] = (
         # The following are used by the release script
         "click==8.1.0",
         "redbaron==0.9.2",
-        "GitPython==3.1.14",
+        "GitPython==3.1.27",
         "commonmark==0.9.1",
         "pygithub==1.55",
         # The following are executed as commands by the release script.
