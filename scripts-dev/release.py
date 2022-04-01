@@ -180,7 +180,6 @@ def prepare() -> None:
             # If the release branch only exists on the remote we check it out
             # locally.
             repo.git.checkout(release_branch_name)
-            release_branch = repo.active_branch
     else:
         # If a branch doesn't exist we create one. We ask which one branch it
         # should be based off, defaulting to sensible values depending on the
@@ -208,7 +207,9 @@ def prepare() -> None:
             update_branch(repo)
 
         # Create the new release branch
-        release_branch = repo.create_head(release_branch_name, commit=base_branch)
+        # Type ignore: I think this is fine and the upstream annotation is too narrow.
+        # See https://github.com/gitpython-developers/GitPython/pull/1419
+        repo.create_head(release_branch_name, commit=base_branch)  # type: ignore[arg-type]
 
     # Switch to the release branch and ensure its up to date.
     repo.git.checkout(release_branch_name)
