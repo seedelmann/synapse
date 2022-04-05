@@ -396,9 +396,6 @@ class EventClientSerializer:
     clients.
     """
 
-    def __init__(self, hs: "HomeServer"):
-        self._msc3440_enabled = hs.config.experimental.msc3440_enabled
-
     def serialize_event(
         self,
         event: Union[JsonDict, EventBase],
