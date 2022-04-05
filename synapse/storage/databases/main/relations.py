@@ -13,18 +13,7 @@
 # limitations under the License.
 
 import logging
-from typing import (
-    TYPE_CHECKING,
-    Collection,
-    Dict,
-    Iterable,
-    List,
-    Optional,
-    Set,
-    Tuple,
-    Union,
-    cast,
-)
+from typing import Collection, Dict, Iterable, List, Optional, Set, Tuple, Union, cast
 
 from synapse.api.constants import RelationTypes
 from synapse.events import EventBase

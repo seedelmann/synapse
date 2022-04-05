@@ -39,7 +39,6 @@ from . import EventBase
 
 if TYPE_CHECKING:
     from synapse.handlers.relations import BundledAggregations
-    from synapse.server import HomeServer
 
 
 # Split strings on "." but not "\." This uses a negative lookbehind assertion for '\'
